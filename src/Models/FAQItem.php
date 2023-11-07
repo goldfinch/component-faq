@@ -28,13 +28,16 @@ class FAQItem extends DataObject
         ],
     ];
 
+    private static $owns = [
+        'Categories',
+    ];
+
     // private static $has_one = [];
     // private static $belongs_to = [];
     // private static $has_many = [];
     // private static $belongs_many_many = [];
     // private static $default_sort = null;
     // private static $indexes = null;
-    // private static $owns = [];
     // private static $casting = [];
     // private static $defaults = [];
 
