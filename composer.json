@@ -16,8 +16,7 @@
         "silverstripe/tagfield": "^3.0",
         "jonom/silverstripe-someconfig": "^1.0",
         "dnadesign/silverstripe-elemental": "^5.0",
-        "goldfinch/helpers": "dev-master",
-        "goldfinch/focuspoint-extra": "dev-master"
+        "goldfinch/helpers": "dev-master"
     },
     "autoload": {
         "psr-4": {
