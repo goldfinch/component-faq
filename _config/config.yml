@@ -1,3 +1,6 @@
 ---
 Name: goldfinch-component-faq
 ---
+Goldfinch\Component\FAQ\Admin\FAQAdmin:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BlocksAdminExtension
