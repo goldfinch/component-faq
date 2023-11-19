@@ -1,0 +1,7 @@
+---
+Name: goldfinch-component-faq-sortable
+---
+
+Goldfinch\Component\FAQ\Models\FAQItem:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSortable
