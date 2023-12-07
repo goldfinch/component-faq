@@ -2,10 +2,11 @@
 
 namespace Goldfinch\Component\FAQ\Blocks;
 
+use SilverStripe\Security\Permission;
+use SilverStripe\ORM\FieldType\DBHTMLText;
+use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\FAQ\Models\FAQItem;
 use Goldfinch\Component\FAQ\Models\FAQCategory;
-use SilverStripe\Security\Permission;
-use DNADesign\Elemental\Models\BaseElement;
 
 class FAQBlock extends BaseElement
 {
@@ -78,6 +79,35 @@ class FAQBlock extends BaseElement
         $default = $this->i18n_singular_name() ?: 'Block';
 
         return _t(__CLASS__ . '.BlockType', $default);
+    }
+
+    public function updateSchemaData(&$schema)
+    {
+        $faqSchema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => [],
+        ];
+
+        if ($this->Items()->count())
+        {
+            foreach ($this->Items() as $item)
+            {
+                $dbtext = DBHTMLText::create();
+                $dbtext->setValue($item->Answer);
+
+                $faqSchema['mainEntity'][] = [
+                    '@type' => 'Question',
+                    'name' => $item->Question,
+                    'acceptedAnswer' => [
+                        '@type' => 'Answer',
+                        'text' => $dbtext->Plain(),
+                    ]
+                ];
+            }
+        }
+
+        $schema['@graph'][] = $faqSchema;
     }
 
     // public function validate()
