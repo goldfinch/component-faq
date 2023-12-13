@@ -13,3 +13,8 @@ Only:
 
 Goldfinch\Component\FAQ\Admin\FAQAdmin:
   menu_icon_class: 'bi-patch-question-fill'
+
+Goldfinch\Component\FAQ\Blocks\FAQBlock:
+  icon: 'bi-patch-question-fill'
+
+
