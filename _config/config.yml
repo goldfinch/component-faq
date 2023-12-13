@@ -4,3 +4,12 @@ Name: goldfinch-component-faq
 Goldfinch\Component\FAQ\Admin\FAQAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
+
+---
+Name: goldfinch-component-faq-icon
+Only:
+  moduleexists: 'goldfinch/enchantment'
+---
+
+Goldfinch\Component\FAQ\Admin\FAQAdmin:
+  menu_icon_class: 'bi-patch-question-fill'

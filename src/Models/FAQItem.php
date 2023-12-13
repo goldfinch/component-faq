@@ -24,7 +24,7 @@ class FAQItem extends DataObject
 
     private static $many_many_extraFields = [
         'Categories' => [
-            'SortOrder' => 'Int',
+            'SortExtra' => 'Int',
         ],
     ];
 
