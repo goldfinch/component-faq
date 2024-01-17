@@ -1,0 +1,19 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-faq"
+---
+Goldfinch\Component\FAQ\Models\Nest\FAQItem:
+  extensions:
+    - {{ namespace }}\FAQItemExtension
+
+Goldfinch\Component\FAQ\Models\Nest\FAQCategory:
+  extensions:
+    - {{ namespace }}\FAQCategoryExtension
+
+Goldfinch\Component\FAQ\Configs\FAQConfig:
+  extensions:
+    - {{ namespace }}\FAQConfigExtension
+
+Goldfinch\Component\FAQ\Blocks\FAQBlock:
+  extensions:
+    - {{ namespace }}\FAQBlockExtension

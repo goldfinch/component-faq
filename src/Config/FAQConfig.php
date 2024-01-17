@@ -2,15 +2,15 @@
 
 namespace Goldfinch\Component\FAQ\Configs;
 
+use Goldfinch\Harvest\Harvest;
 use JonoM\SomeConfig\SomeConfig;
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\CheckboxField;
-use SilverStripe\Forms\CompositeField;
+use Goldfinch\Harvest\Traits\HarvestTrait;
 use SilverStripe\View\TemplateGlobalProvider;
 
 class FAQConfig extends DataObject implements TemplateGlobalProvider
 {
-    use SomeConfig;
+    use SomeConfig, HarvestTrait;
 
     private static $table_name = 'FAQConfig';
 
@@ -18,24 +18,12 @@ class FAQConfig extends DataObject implements TemplateGlobalProvider
         'OpenFirst' => 'Boolean',
     ];
 
-    private static $field_descriptions = [];
-
-    public function getCMSFields()
+    public function harvest(Harvest $harvest)
     {
-        $fields = parent::getCMSFields();
-
-        $fields->removeByName(['OpenFirst']);
-
-        $fields->addFieldsToTab('Root.Main', [
-
-            CompositeField::create(
-
-                CheckboxField::create('OpenFirst', 'Open first')->setDescription('Keep first item open by default'),
-
-            ),
-
+        $harvest->fields([
+            'Root.Main' => [
+                $harvest->checkbox('OpenFirst', 'Open first')->setDescription('Keep first item open by default'),
+            ],
         ]);
-
-        return $fields;
     }
 }
