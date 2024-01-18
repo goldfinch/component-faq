@@ -4,16 +4,16 @@ After: "goldfinch/component-faq"
 ---
 Goldfinch\Component\FAQ\Models\Nest\FAQItem:
   extensions:
-    - {{ namespace_root }}FAQItemExtension
+    - {{ namespace_root_extensions }}FAQItemExtension
 
 Goldfinch\Component\FAQ\Models\Nest\FAQCategory:
   extensions:
-    - {{ namespace_root }}FAQCategoryExtension
+    - {{ namespace_root_extensions }}FAQCategoryExtension
 
 Goldfinch\Component\FAQ\Configs\FAQConfig:
   extensions:
-    - {{ namespace_root }}FAQConfigExtension
+    - {{ namespace_root_extensions }}FAQConfigExtension
 
 Goldfinch\Component\FAQ\Blocks\FAQBlock:
   extensions:
-    - {{ namespace_root }}FAQBlockExtension
+    - {{ namespace_root_extensions }}FAQBlockExtension
