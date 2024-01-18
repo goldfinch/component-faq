@@ -16,34 +16,34 @@ class ComponentFAQCommand extends GeneratorCommand
     protected function execute($input, $output): int
     {
         $command = $this->getApplication()->find(
-            'vendor:component-faq-faqitem',
+            'vendor:component-faq:faqitem',
         );
         $input = new ArrayInput(['name' => 'FAQItem']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-faq-faqcategory',
+            'vendor:component-faq:faqcategory',
         );
         $input = new ArrayInput(['name' => 'FAQCategory']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-faq-faqconfig',
+            'vendor:component-faq:faqconfig',
         );
         $input = new ArrayInput(['name' => 'FAQConfig']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-faq-faqblock',
+            'vendor:component-faq:faqblock',
         );
         $input = new ArrayInput(['name' => 'FAQBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('templates:component-faq');
+        $command = $this->getApplication()->find('vendor:component-faq:templates');
         $input = new ArrayInput([]);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('config:component-faq');
+        $command = $this->getApplication()->find('vendor:component-faq:config');
         $input = new ArrayInput(['name' => 'component-faq']);
         $command->run($input, $output);
 

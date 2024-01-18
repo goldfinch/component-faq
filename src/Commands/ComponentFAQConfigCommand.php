@@ -5,10 +5,10 @@ namespace Goldfinch\Component\FAQ\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'config:component-faq')]
+#[AsCommand(name: 'vendor:component-faq:config')]
 class ComponentFAQConfigCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'config:component-faq';
+    protected static $defaultName = 'vendor:component-faq:config';
 
     protected $description = 'Create component-faq config';
 
