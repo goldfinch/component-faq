@@ -20,16 +20,16 @@ class FAQAdmin extends ModelAdmin
 
     private static $managed_models = [
         FAQItem::class => [
-            'title'=> 'Questions',
+            'title' => 'Questions',
         ],
         FAQCategory::class => [
-            'title'=> 'Categories',
+            'title' => 'Categories',
         ],
         FAQBlock::class => [
-            'title'=> 'Blocks',
+            'title' => 'Blocks',
         ],
         FAQConfig::class => [
-            'title'=> 'Settings',
+            'title' => 'Settings',
         ],
     ];
 }

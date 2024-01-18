@@ -30,9 +30,7 @@ class FAQItem extends DataObject
         ],
     ];
 
-    private static $owns = [
-        'Categories',
-    ];
+    private static $owns = ['Categories'];
 
     private static $summary_fields = [
         'Question' => 'Question',
@@ -50,9 +48,7 @@ class FAQItem extends DataObject
         $harvest->require(['Question', 'Answer']);
 
         $harvest->fields([
-            'Root.Main' => [
-                $harvest->tag('Categories'),
-            ],
+            'Root.Main' => [$harvest->tag('Categories')],
         ]);
     }
 }

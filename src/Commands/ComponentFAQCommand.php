@@ -39,9 +39,7 @@ class ComponentFAQCommand extends GeneratorCommand
         $input = new ArrayInput(['name' => 'FAQBlock']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find(
-            'templates:component-faq',
-        );
+        $command = $this->getApplication()->find('templates:component-faq');
         $input = new ArrayInput([]);
         $command->run($input, $output);
 

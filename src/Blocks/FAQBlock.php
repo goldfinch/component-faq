@@ -62,10 +62,8 @@ class FAQBlock extends BaseElement
             'mainEntity' => [],
         ];
 
-        if ($this->Items()->count())
-        {
-            foreach ($this->Items() as $item)
-            {
+        if ($this->Items()->count()) {
+            foreach ($this->Items() as $item) {
                 $dbtext = DBHTMLText::create();
                 $dbtext->setValue($item->Answer);
 
@@ -75,7 +73,7 @@ class FAQBlock extends BaseElement
                     'acceptedAnswer' => [
                         '@type' => 'Answer',
                         'text' => $dbtext->Plain(),
-                    ]
+                    ],
                 ];
             }
         }

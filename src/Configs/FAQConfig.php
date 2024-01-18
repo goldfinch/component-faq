@@ -22,7 +22,9 @@ class FAQConfig extends DataObject implements TemplateGlobalProvider
     {
         $harvest->fields([
             'Root.Main' => [
-                $harvest->checkbox('OpenFirst', 'Open first')->setDescription('Keep first item open by default'),
+                $harvest
+                    ->checkbox('OpenFirst', 'Open first')
+                    ->setDescription('Keep first item open by default'),
             ],
         ]);
     }
