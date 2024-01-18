@@ -76,21 +76,5 @@ class ComponentFAQTemplatesCommand extends GeneratorCommand
                 $theme .
                 '/templates/Goldfinch/Component/FAQ/Blocks/FAQBlock.ss',
         );
-
-        $fs->copy(
-            BASE_PATH .
-                '/vendor/goldfinch/component-faq/templates/Goldfinch/Component/FAQ/Models/Nest/FAQItem.ss',
-            'themes/' .
-                $theme .
-                '/templates/Goldfinch/Component/FAQ/Models/Nest/FAQItem.ss',
-        );
-
-        $fs->copy(
-            BASE_PATH .
-                '/vendor/goldfinch/component-faq/templates/Goldfinch/Component/FAQ/Pages/Nest/FAQ.ss',
-            'themes/' .
-                $theme .
-                '/templates/Goldfinch/Component/FAQ/Pages/Nest/FAQ.ss',
-        );
     }
 }
