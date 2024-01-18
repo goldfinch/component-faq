@@ -18,7 +18,7 @@ class FAQConfig extends DataObject implements TemplateGlobalProvider
         'OpenFirst' => 'Boolean',
     ];
 
-    public function harvest(Harvest $harvest)
+    public function harvest(Harvest $harvest): void
     {
         $harvest->fields([
             'Root.Main' => [

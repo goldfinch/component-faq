@@ -17,17 +17,13 @@ class FAQBlock extends BaseElement
     private static $singular_name = 'FAQ';
     private static $plural_name = 'FAQs';
 
-    private static $db = [
-        // 'BlockTitle' => 'Varchar',
-        // 'BlockSubTitle' => 'Varchar',
-        // 'BlockText' => 'HTMLText',
-    ];
+    private static $db = [];
 
     private static $inline_editable = false;
     private static $description = '';
     private static $icon = 'font-icon-help-circled';
 
-    public function harvest(Harvest $harvest)
+    public function harvest(Harvest $harvest): void
     {
         // ..
     }
