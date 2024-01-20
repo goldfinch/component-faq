@@ -5,6 +5,7 @@ namespace Goldfinch\Component\FAQ\Models;
 use Goldfinch\Harvest\Harvest;
 use SilverStripe\ORM\DataObject;
 use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Component\FAQ\Configs\FAQConfig;
 
 class FAQItem extends DataObject
 {
@@ -38,7 +39,6 @@ class FAQItem extends DataObject
         'Disabled.NiceAsBoolean' => 'Disabled',
     ];
 
-    // * goldfinch/helpers
     private static $field_descriptions = [
         'Disabled' => 'hide this item from the list',
     ];
@@ -47,8 +47,14 @@ class FAQItem extends DataObject
     {
         $harvest->require(['Question', 'Answer']);
 
-        $harvest->fields([
-            'Root.Main' => [$harvest->tag('Categories')],
-        ]);
+        $cfg = FAQConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            $harvest->remove('Categories');
+        } else {
+            $harvest->fields([
+                'Root.Main' => [$harvest->tag('Categories')],
+            ]);
+        }
     }
 }

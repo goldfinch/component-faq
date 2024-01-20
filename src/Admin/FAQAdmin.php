@@ -32,4 +32,25 @@ class FAQAdmin extends ModelAdmin
             'title' => 'Settings',
         ],
     ];
+
+    public function getManagedModels()
+    {
+        $models = parent::getManagedModels();
+
+        $cfg = FAQConfig::current_config();
+
+        if ($cfg->DisabledCategories) {
+            unset($models[FAQCategory::class]);
+        }
+
+        if (!class_exists('DNADesign\Elemental\Models\BaseElement')) {
+            unset($models[FAQBlock::class]);
+        }
+
+        if (empty($cfg->config('db')->db)) {
+            unset($models[FAQConfig::class]);
+        }
+
+        return $models;
+    }
 }

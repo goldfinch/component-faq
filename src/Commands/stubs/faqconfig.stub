@@ -2,11 +2,11 @@
 Name: app-{{ class }}
 After: "goldfinch/component-faq"
 ---
-Goldfinch\Component\FAQ\Models\Nest\FAQItem:
+Goldfinch\Component\FAQ\Models\FAQItem:
   extensions:
     - {{ namespace_root_extensions }}FAQItemExtension
 
-Goldfinch\Component\FAQ\Models\Nest\FAQCategory:
+Goldfinch\Component\FAQ\Models\FAQCategory:
   extensions:
     - {{ namespace_root_extensions }}FAQCategoryExtension
 

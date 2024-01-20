@@ -15,6 +15,7 @@ class FAQConfig extends DataObject implements TemplateGlobalProvider
     private static $table_name = 'FAQConfig';
 
     private static $db = [
+        'DisabledCategories' => 'Boolean',
         'OpenFirst' => 'Boolean',
     ];
 
@@ -22,6 +23,7 @@ class FAQConfig extends DataObject implements TemplateGlobalProvider
     {
         $harvest->fields([
             'Root.Main' => [
+                $harvest->checkbox('DisabledCategories', 'Disabled categories'),
                 $harvest
                     ->checkbox('OpenFirst', 'Open first')
                     ->setDescription('Keep first item open by default'),
