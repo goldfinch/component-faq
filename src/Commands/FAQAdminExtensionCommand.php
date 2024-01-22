@@ -5,18 +5,18 @@ namespace Goldfinch\Component\FAQ\Commands;
 use Goldfinch\Taz\Console\GeneratorCommand;
 use Symfony\Component\Console\Command\Command;
 
-#[AsCommand(name: 'vendor:component-faq:ext:config')]
-class FAQConfigExtensionCommand extends GeneratorCommand
+#[AsCommand(name: 'vendor:component-faq:ext:admin')]
+class FAQAdminExtensionCommand extends GeneratorCommand
 {
-    protected static $defaultName = 'vendor:component-faq:ext:config';
+    protected static $defaultName = 'vendor:component-faq:ext:admin';
 
-    protected $description = 'Create FAQConfig extension';
+    protected $description = 'Create FAQAdmin extension';
 
     protected $path = '[psr4]/Extensions';
 
-    protected $type = 'component-faq config extension';
+    protected $type = 'extension';
 
-    protected $stub = './stubs/faqconfig-extension.stub';
+    protected $stub = './stubs/faqadmin-extension.stub';
 
     protected $prefix = 'Extension';
 

@@ -1,0 +1,25 @@
+---
+Name: app-{{ class }}
+After: "goldfinch/component-faq"
+---
+Goldfinch\Component\FAQ\Admin\FAQAdmin:
+  # menu_icon_class: ""
+  extensions:
+    - {{ namespace_root_extensions }}FAQAdminExtension
+
+Goldfinch\Component\FAQ\Configs\FAQConfig:
+  extensions:
+    - {{ namespace_root_extensions }}FAQConfigExtension
+
+Goldfinch\Component\FAQ\Blocks\FAQBlock:
+  # icon: ""
+  extensions:
+    - {{ namespace_root_extensions }}FAQBlockExtension
+
+Goldfinch\Component\FAQ\Models\FAQItem:
+  extensions:
+    - {{ namespace_root_extensions }}FAQItemExtension
+
+Goldfinch\Component\FAQ\Models\FAQCategory:
+  extensions:
+    - {{ namespace_root_extensions }}FAQCategoryExtension

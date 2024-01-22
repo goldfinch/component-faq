@@ -7,44 +7,50 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
 
 #[AsCommand(name: 'vendor:component-faq')]
-class ComponentFAQCommand extends GeneratorCommand
+class FAQSetCommand extends GeneratorCommand
 {
     protected static $defaultName = 'vendor:component-faq';
 
-    protected $description = 'Populate goldfinch/component-faq components';
+    protected $description = 'Set of all [goldfinch/component-faq] commands';
 
     protected function execute($input, $output): int
     {
         $command = $this->getApplication()->find(
-            'vendor:component-faq:faqitem',
+            'vendor:component-faq:ext:admin',
         );
-        $input = new ArrayInput(['name' => 'FAQItem']);
+        $input = new ArrayInput(['name' => 'FAQAdmin']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-faq:faqcategory',
+            'vendor:component-faq:ext:block',
         );
-        $input = new ArrayInput(['name' => 'FAQCategory']);
+        $input = new ArrayInput(['name' => 'FAQBlock']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-faq:faqconfig',
+            'vendor:component-faq:ext:config',
         );
         $input = new ArrayInput(['name' => 'FAQConfig']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-faq:faqblock',
+            'vendor:component-faq:ext:item',
         );
-        $input = new ArrayInput(['name' => 'FAQBlock']);
+        $input = new ArrayInput(['name' => 'FAQItem']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('vendor:component-faq:templates');
-        $input = new ArrayInput([]);
+        $command = $this->getApplication()->find(
+            'vendor:component-faq:ext:category',
+        );
+        $input = new ArrayInput(['name' => 'FAQCategory']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find('vendor:component-faq:config');
         $input = new ArrayInput(['name' => 'component-faq']);
+        $command->run($input, $output);
+
+        $command = $this->getApplication()->find('vendor:component-faq:templates');
+        $input = new ArrayInput([]);
         $command->run($input, $output);
 
         return Command::SUCCESS;
