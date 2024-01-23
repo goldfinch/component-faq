@@ -14,7 +14,7 @@ class FAQBlockExtensionCommand extends GeneratorCommand
 
     protected $path = '[psr4]/Extensions';
 
-    protected $type = 'component-faq block extension';
+    protected $type = 'extension';
 
     protected $stub = './stubs/faqblock-extension.stub';
 
