@@ -2,13 +2,13 @@
 
 namespace Goldfinch\Component\FAQ\Models;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use SilverStripe\ORM\DataObject;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 
 class FAQCategory extends DataObject
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     private static $table_name = 'FAQCategory';
     private static $singular_name = 'category';
@@ -22,12 +22,12 @@ class FAQCategory extends DataObject
         'Items' => FAQItem::class,
     ];
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->require(['Title']);
+        $fielder->require(['Title']);
 
-        $harvest->fields([
-            'Root.Main' => [$harvest->string('Title')],
+        $fielder->fields([
+            'Root.Main' => [$fielder->string('Title')],
         ]);
     }
 }

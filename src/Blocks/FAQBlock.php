@@ -2,8 +2,8 @@
 
 namespace Goldfinch\Component\FAQ\Blocks;
 
-use Goldfinch\Harvest\Harvest;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Fielder;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\FAQ\Models\FAQItem;
@@ -11,7 +11,7 @@ use Goldfinch\Component\FAQ\Models\FAQCategory;
 
 class FAQBlock extends BaseElement
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     private static $table_name = 'FAQBlock';
     private static $singular_name = 'FAQ';
@@ -23,7 +23,7 @@ class FAQBlock extends BaseElement
     private static $description = '';
     private static $icon = 'font-icon-help-circled';
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
         // ..
     }

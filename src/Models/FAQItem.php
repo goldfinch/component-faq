@@ -2,14 +2,14 @@
 
 namespace Goldfinch\Component\FAQ\Models;
 
-use Goldfinch\Harvest\Harvest;
+use Goldfinch\Fielder\Fielder;
 use SilverStripe\ORM\DataObject;
-use Goldfinch\Harvest\Traits\HarvestTrait;
+use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\FAQ\Configs\FAQConfig;
 
 class FAQItem extends DataObject
 {
-    use HarvestTrait;
+    use FielderTrait;
 
     private static $table_name = 'FAQItem';
     private static $singular_name = 'question';
@@ -43,17 +43,17 @@ class FAQItem extends DataObject
         'Disabled' => 'hide this item from the list',
     ];
 
-    public function harvest(Harvest $harvest): void
+    public function fielder(Fielder $fielder): void
     {
-        $harvest->require(['Question', 'Answer']);
+        $fielder->require(['Question', 'Answer']);
 
         $cfg = FAQConfig::current_config();
 
         if ($cfg->DisabledCategories) {
-            $harvest->remove('Categories');
+            $fielder->remove('Categories');
         } else {
-            $harvest->fields([
-                'Root.Main' => [$harvest->tag('Categories')],
+            $fielder->fields([
+                'Root.Main' => [$fielder->tag('Categories')],
             ]);
         }
     }
