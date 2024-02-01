@@ -22,8 +22,10 @@ class FAQTemplatesCommand extends GeneratorCommand
 
         if (is_string($theme)) {
 
-            $componentPath = BASE_PATH . '/vendor/goldfinch/component-faq/templates/Goldfinch/Component/FAQ/';
-            $themePath = 'themes/' . $theme . '/templates/Goldfinch/Component/FAQ/';
+            $componentPathTemplates = BASE_PATH . '/vendor/goldfinch/component-faq/templates/';
+            $componentPath = $componentPathTemplates . 'Goldfinch/Component/FAQ/';
+            $themeTemplates = 'themes/' . $theme . '/templates/';
+            $themePath = $themeTemplates . 'Goldfinch/Component/FAQ/';
 
             $files = [
                 [

@@ -24,15 +24,15 @@ class FAQSetCommand extends GeneratorCommand
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
-            'vendor:component-faq:ext:block',
-        );
-        $input = new ArrayInput(['name' => 'FAQBlock']);
-        $command->run($input, $output);
-
-        $command = $this->getApplication()->find(
             'vendor:component-faq:ext:config',
         );
         $input = new ArrayInput(['name' => 'FAQConfig']);
+        $command->run($input, $output);
+
+        $command = $this->getApplication()->find(
+            'vendor:component-faq:ext:block',
+        );
+        $input = new ArrayInput(['name' => 'FAQBlock']);
         $command->run($input, $output);
 
         $command = $this->getApplication()->find(
@@ -51,7 +51,9 @@ class FAQSetCommand extends GeneratorCommand
         $input = new ArrayInput(['name' => 'component-faq']);
         $command->run($input, $output);
 
-        $command = $this->getApplication()->find('vendor:component-faq:templates');
+        $command = $this->getApplication()->find(
+            'vendor:component-faq:templates',
+        );
         $input = new ArrayInput([]);
         $command->run($input, $output);
 

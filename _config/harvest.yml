@@ -1,0 +1,7 @@
+---
+Name: goldfinch-component-faq-harvest
+After: "goldfinch/harvest"
+---
+Goldfinch\Harvest\Harvest:
+  harvesters:
+    faq: Goldfinch\Component\FAQ\Harvest\FAQHarvest

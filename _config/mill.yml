@@ -1,0 +1,8 @@
+---
+Name: goldfinch-component-faq-mill
+After: "goldfinch/mill"
+---
+Goldfinch\Mill\Mill:
+  millable:
+    Goldfinch\Component\FAQ\Mills\FAQCategoryMill: Goldfinch\Component\FAQ\Models\FAQCategory
+    Goldfinch\Component\FAQ\Mills\FAQItemMill: Goldfinch\Component\FAQ\Models\FAQItem

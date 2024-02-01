@@ -50,6 +50,7 @@ class FAQBlock extends BaseElement
         return _t(__CLASS__ . '.BlockType', $default);
     }
 
+    // TODO
     public function updateSchemaData(&$schema)
     {
         $faqSchema = [

@@ -4,11 +4,12 @@ namespace Goldfinch\Component\FAQ\Models;
 
 use Goldfinch\Fielder\Fielder;
 use SilverStripe\ORM\DataObject;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 
 class FAQCategory extends DataObject
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     private static $table_name = 'FAQCategory';
     private static $singular_name = 'category';
@@ -20,6 +21,11 @@ class FAQCategory extends DataObject
 
     private static $belongs_many_many = [
         'Items' => FAQItem::class,
+    ];
+
+    private static $summary_fields = [
+        'Title' => 'Title',
+        'Items.Count' => 'Questions',
     ];
 
     public function fielder(Fielder $fielder): void
