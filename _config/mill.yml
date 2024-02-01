@@ -6,3 +6,4 @@ Goldfinch\Mill\Mill:
   millable:
     Goldfinch\Component\FAQ\Mills\FAQCategoryMill: Goldfinch\Component\FAQ\Models\FAQCategory
     Goldfinch\Component\FAQ\Mills\FAQItemMill: Goldfinch\Component\FAQ\Models\FAQItem
+    Goldfinch\Component\FAQ\Mills\FAQBlockMill: Goldfinch\Component\FAQ\Blocks\FAQBlock

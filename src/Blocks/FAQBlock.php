@@ -3,6 +3,7 @@
 namespace Goldfinch\Component\FAQ\Blocks;
 
 use Goldfinch\Fielder\Fielder;
+use Goldfinch\Mill\Traits\Millable;
 use Goldfinch\Fielder\Traits\FielderTrait;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use DNADesign\Elemental\Models\BaseElement;
@@ -11,7 +12,7 @@ use Goldfinch\Component\FAQ\Models\FAQCategory;
 
 class FAQBlock extends BaseElement
 {
-    use FielderTrait;
+    use FielderTrait, Millable;
 
     private static $table_name = 'FAQBlock';
     private static $singular_name = 'FAQ';
