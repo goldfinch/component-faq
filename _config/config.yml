@@ -4,6 +4,15 @@ Name: goldfinch-component-faq
 Goldfinch\Component\FAQ\Admin\FAQAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
+
+Goldfinch\Component\FAQ\Models\FAQItem:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSluggable
+
+Goldfinch\Component\FAQ\Models\FAQCategory:
+  extensions:
+    - Goldfinch\Helpers\Extensions\DataObjectSluggable
+
 ---
 Name: goldfinch-component-faq-icon
 Only:

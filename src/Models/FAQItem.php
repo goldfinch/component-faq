@@ -45,6 +45,8 @@ class FAQItem extends DataObject
         'Disabled' => 'hide this item from the list',
     ];
 
+    private static $urlsegment_source = 'Question';
+
     public function summaryFields()
     {
         $fields = parent::summaryFields();
