@@ -12,7 +12,7 @@ class FAQHarvest extends Harvest
     {
         FAQCategory::mill(5)->make();
 
-        FAQItem::mill(20)->make()->each(function($item) {
+        FAQItem::mill(30)->make()->each(function($item) {
             $categories = FAQCategory::get()->shuffle()->limit(rand(0,4));
 
             foreach ($categories as $category) {
