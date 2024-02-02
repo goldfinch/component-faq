@@ -41,24 +41,7 @@ class FAQItem extends DataObject
         'Categories.Count' => 'Categories',
     ];
 
-    private static $field_descriptions = [
-        'Disabled' => 'hide this item from the list',
-    ];
-
     private static $urlsegment_source = 'Question';
-
-    public function summaryFields()
-    {
-        $fields = parent::summaryFields();
-
-        $cfg = FAQConfig::current_config();
-
-        if ($cfg->DisabledCategories) {
-            unset($fields['Categories.Count']);
-        }
-
-        return $fields;
-    }
 
     public function fielder(Fielder $fielder): void
     {
