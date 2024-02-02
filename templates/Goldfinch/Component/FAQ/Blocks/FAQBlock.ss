@@ -23,10 +23,63 @@
   </form> --%>
 
   <% if Items %>
-    <ul>
+
+    <form id="faqform" style="display: block; margin-bottom: 70px">
+      <div style="margin-bottom: 10px">
+        <input type="text" class="text" name="search" minlength="3" placeholder="Search" value="">
+      </div>
+      <% if not FAQConfig.DisabledCategories %>
+        <% if Categories %>
+          <div style="margin-bottom: 10px">
+            <select name="category">
+            <option value>Select category</option>
+            <% loop Categories %><option value="{$URLSegment}"<% if paramGet(category) == $URLSegment %> selected<% end_if %>>$Title</option><% end_loop %>
+            </select>
+          </div>
+        <% end_if %>
+      <% end_if %>
+    </form>
+
+    <script type="text/javascript">
+
+      document.addEventListener('DOMContentLoaded', () => {
+
+        const form = document.getElementById('faqform');
+        const searchField = form.querySelector('[name="search"]');
+        const categoryField = form.querySelector('[name="category"]');
+        const stockElement = document.getElementById('faqlist');
+
+        var currentData = [];
+
+        if (stockElement && stockElement.getAttribute('data-json')) {
+          currentData['list'] = JSON.parse(stockElement.getAttribute('data-json'));
+        }
+
+        function liveFilter(e, key) {
+          currentData[key] = e
+
+          console.log(currentData)
+        }
+
+        if (searchField) {
+          searchField.addEventListener('input', (e) => {
+            liveFilter(e.target.value, 'search')
+          })
+        }
+
+        if (categoryField.length) {
+          categoryField.addEventListener('change', (e) => {
+            liveFilter(e.target.value, 'category')
+          })
+        }
+
+      });
+    </script>
+
+    <ul id="faqlist" data-json="$Items.toJson(Question, Answer, 'Categories:Title,URLSegment')">
       <% loop Items %>
         <% if not Disabled %>
-          <li><a href="#{$URLSegment}">$Question</a></li>
+          <li data-id="{$URLSegment}"><a href="#{$URLSegment}">$Question</a></li>
         <% end_if %>
       <% end_loop %>
     </ul>
