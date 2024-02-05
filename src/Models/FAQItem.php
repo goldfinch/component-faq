@@ -45,7 +45,7 @@ class FAQItem extends DataObject
 
     public function fielder(Fielder $fielder): void
     {
-        $fielder->require(['Question', 'Answer']);
+        $fielder->required(['Question', 'Answer']);
 
         $cfg = FAQConfig::current_config();
 
