@@ -17,5 +17,5 @@ class FAQItemExtensionCommand extends GeneratorCommand
 
     protected $stub = './stubs/faqitem-extension.stub';
 
-    protected $prefix = 'Extension';
+    protected $suffix = 'Extension';
 }
