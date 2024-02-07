@@ -17,45 +17,26 @@ class FAQSetCommand extends GeneratorCommand
 
     protected function execute($input, $output): int
     {
-        $command = $this->getApplication()->find(
-            'vendor:component-faq:ext:admin',
-        );
-        $input = new ArrayInput(['name' => 'FAQAdmin']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-faq:ext:admin');
+        $command->run(new ArrayInput(['name' => 'FAQAdmin']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-faq:ext:config',
-        );
-        $input = new ArrayInput(['name' => 'FAQConfig']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-faq:ext:config');
+        $command->run(new ArrayInput(['name' => 'FAQConfig']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-faq:ext:block',
-        );
-        $input = new ArrayInput(['name' => 'FAQBlock']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-faq:ext:block');
+        $command->run(new ArrayInput(['name' => 'FAQBlock']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-faq:ext:item',
-        );
-        $input = new ArrayInput(['name' => 'FAQItem']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-faq:ext:item');
+        $command->run(new ArrayInput(['name' => 'FAQItem']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-faq:ext:category',
-        );
-        $input = new ArrayInput(['name' => 'FAQCategory']);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-faq:ext:category');
+        $command->run(new ArrayInput(['name' => 'FAQCategory']), $output);
 
         $command = $this->getApplication()->find('vendor:component-faq:config');
-        $input = new ArrayInput(['name' => 'component-faq']);
-        $command->run($input, $output);
+        $command->run(new ArrayInput(['name' => 'component-faq']), $output);
 
-        $command = $this->getApplication()->find(
-            'vendor:component-faq:templates',
-        );
-        $input = new ArrayInput([]);
-        $command->run($input, $output);
+        $command = $this->getApplication()->find('vendor:component-faq:templates');
+        $command->run(new ArrayInput([]), $output);
 
         return Command::SUCCESS;
     }
