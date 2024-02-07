@@ -3,7 +3,6 @@
 namespace Goldfinch\Component\FAQ\Commands;
 
 use Goldfinch\Taz\Console\GeneratorCommand;
-use Symfony\Component\Console\Command\Command;
 
 #[AsCommand(name: 'vendor:component-faq:config')]
 class FAQConfigCommand extends GeneratorCommand
@@ -19,11 +18,4 @@ class FAQConfigCommand extends GeneratorCommand
     protected $stub = './stubs/config.stub';
 
     protected $extension = '.yml';
-
-    protected function execute($input, $output): int
-    {
-        parent::execute($input, $output);
-
-        return Command::SUCCESS;
-    }
 }
