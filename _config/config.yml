@@ -5,6 +5,10 @@ Goldfinch\Component\FAQ\Admin\FAQAdmin:
   extensions:
     - Goldfinch\Helpers\Extensions\BlocksAdminExtension
 
+Goldfinch\Component\FAQ\Blocks\FAQBlock:
+  extensions:
+    - Goldfinch\Helpers\Extensions\BaseElementExtension
+
 Goldfinch\Component\FAQ\Models\FAQItem:
   extensions:
     - Goldfinch\Helpers\Extensions\DataObjectSluggable

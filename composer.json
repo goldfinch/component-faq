@@ -17,7 +17,6 @@
         "goldfinch/taz": "^1.0",
         "goldfinch/fielder": "^1.0",
         "goldfinch/helpers": "^1.0",
-        "goldfinch/blocks": "^1.0",
         "silverstripe/tagfield": "^3.0",
         "jonom/silverstripe-someconfig": "^1.0"
     },

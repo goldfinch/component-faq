@@ -16,7 +16,7 @@ class FAQBlock extends BaseElement
     private static $db = [];
 
     private static $inline_editable = false;
-    private static $description = '';
+    private static $description = 'FAQ block handler';
     private static $icon = 'font-icon-help-circled';
 
     public function Items()
