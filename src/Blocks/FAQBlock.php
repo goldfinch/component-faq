@@ -5,10 +5,13 @@ namespace Goldfinch\Component\FAQ\Blocks;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use DNADesign\Elemental\Models\BaseElement;
 use Goldfinch\Component\FAQ\Models\FAQItem;
+use Goldfinch\Helpers\Traits\BaseElementTrait;
 use Goldfinch\Component\FAQ\Models\FAQCategory;
 
 class FAQBlock extends BaseElement
 {
+    use BaseElementTrait;
+
     private static $table_name = 'FAQBlock';
     private static $singular_name = 'FAQ';
     private static $plural_name = 'FAQs';
