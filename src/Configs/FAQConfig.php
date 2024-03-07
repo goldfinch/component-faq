@@ -2,15 +2,13 @@
 
 namespace Goldfinch\Component\FAQ\Configs;
 
-use Goldfinch\Fielder\Fielder;
 use JonoM\SomeConfig\SomeConfig;
 use SilverStripe\ORM\DataObject;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use SilverStripe\View\TemplateGlobalProvider;
 
 class FAQConfig extends DataObject implements TemplateGlobalProvider
 {
-    use SomeConfig, FielderTrait;
+    use SomeConfig;
 
     private static $table_name = 'FAQConfig';
 
@@ -19,8 +17,12 @@ class FAQConfig extends DataObject implements TemplateGlobalProvider
         'OpenFirst' => 'Boolean',
     ];
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->fields([
             'Root.Main' => [
                 $fielder->checkbox('DisabledCategories', 'Disabled categories'),
@@ -29,5 +31,7 @@ class FAQConfig extends DataObject implements TemplateGlobalProvider
                     ->setDescription('Keep first item open by default'),
             ],
         ]);
+
+        return $fields;
     }
 }

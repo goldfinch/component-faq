@@ -2,15 +2,13 @@
 
 namespace Goldfinch\Component\FAQ\Models;
 
-use Goldfinch\Fielder\Fielder;
 use SilverStripe\ORM\DataObject;
 use Goldfinch\Mill\Traits\Millable;
-use Goldfinch\Fielder\Traits\FielderTrait;
 use Goldfinch\Component\FAQ\Configs\FAQConfig;
 
 class FAQItem extends DataObject
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     private static $table_name = 'FAQItem';
     private static $singular_name = 'question';
@@ -43,8 +41,12 @@ class FAQItem extends DataObject
 
     private static $urlsegment_source = 'Question';
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->required(['Question', 'Answer']);
 
         $cfg = FAQConfig::current_config();
@@ -56,5 +58,7 @@ class FAQItem extends DataObject
                 'Root.Main' => [$fielder->tag('Categories')],
             ]);
         }
+
+        return $fields;
     }
 }

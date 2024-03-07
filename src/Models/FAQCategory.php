@@ -2,14 +2,12 @@
 
 namespace Goldfinch\Component\FAQ\Models;
 
-use Goldfinch\Fielder\Fielder;
 use SilverStripe\ORM\DataObject;
 use Goldfinch\Mill\Traits\Millable;
-use Goldfinch\Fielder\Traits\FielderTrait;
 
 class FAQCategory extends DataObject
 {
-    use FielderTrait, Millable;
+    use Millable;
 
     private static $table_name = 'FAQCategory';
     private static $singular_name = 'category';
@@ -28,12 +26,18 @@ class FAQCategory extends DataObject
         'Items.Count' => 'Questions',
     ];
 
-    public function fielder(Fielder $fielder): void
+    public function getCMSFields()
     {
+        $fields = parent::getCMSFields();
+
+        $fielder = $fields->fielder($this);
+
         $fielder->required(['Title']);
 
         $fielder->fields([
             'Root.Main' => [$fielder->string('Title')],
         ]);
+
+        return $fields;
     }
 }
